@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Analysis</title>
+    <link rel="stylesheet" href="{% static 'fraudapp/style.css' %}">
+    <style>
+        .analysis-section {
+            max-width: 960px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .scrollable-table {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+        }
+        img.heatmap {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="analysis-section">
+        <h2>📊 CSV Analysis Report</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% else %}
+            <h3>Correlation Heatmap</h3>
+            <img class="heatmap" src="{{ heatmap_url }}" alt="Correlation Heatmap">
+
+            <h3>Basic Statistics</h3>
+            {{ describe|safe }}
+
+            {% if fraud_pct %}
+                <h3>Fraud Prediction Distribution</h3>
+                <ul>
+                    {% for label, pct in fraud_pct.items %}
+                        <li>{{ label }}: {{ pct }}%</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <h3>Sample Data Table</h3>
+            <div class="scrollable-table">
+                {{ data_table|safe }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

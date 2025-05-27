@@ -1,0 +1,343 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1c1c1c;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.navbar-left {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.navbar-right a {
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-right a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    height: 80vh; /* Fullscreen height */
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: white;
+    color: #2a5298;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+footer {
+    background: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    padding: 2rem;
+    background-color: #f4f6f8;
+}
+
+.login-form {
+    background: white;
+    padding: 2.5rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2a5298;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #1e3c72;
+}
+
+.error-msg {
+    color: red;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.about-container h2 {
+    color: #2a5298;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-container p, .about-container ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.about-container ul {
+    padding-left: 1.5rem;
+}
+
+.about-container ul li {
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #111;
+    color: white;
+    padding: 15px 30px;
+}
+
+.navbar-right a,
+.navbar-right span {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Main dashboard container */
+.dashboard-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 35px 40px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Header */
+.dashboard-container h2 {
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Upload form layout */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.upload-form input[type="text"],
+.upload-form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fdfdfd;
+}
+
+.upload-form button {
+    padding: 12px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.upload-form button:hover {
+    background-color: #005fa3;
+}
+
+/* Prediction results */
+.results {
+    margin-top: 40px;
+}
+
+.results h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #f0f0f0;
+}
+
+/* Error messages */
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.analysis-button {
+    float: right;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.analysis-button:hover {
+    background-color: #218838;
+}
+
+
+
+
+
+
+
+
+
+
+
+

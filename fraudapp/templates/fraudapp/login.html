@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Credit Card Fraud Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'fraudapp/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="{% url 'login' %}">LOGIN</a>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <form method="post" class="login-form">
+            <h2>Login</h2>
+            {% csrf_token %}
+            {% if error %}
+                <p class="error-msg">{{ error }}</p>
+            {% endif %}
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>

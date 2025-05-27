@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Credit Card Fraud Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'fraudapp/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT</a>
+            <a href="{% url 'login' %}">LOGIN</a>
+        </div>
+    </nav>
+
+    <div class="about-container">
+        <section>
+            <h2>What is Credit Card Fraud Detection?</h2>
+            <p>
+                Credit card fraud detection is the process of identifying unauthorized or suspicious transactions on a credit card. 
+                Using machine learning models trained on historical data, we can predict whether a given transaction is fraudulent or legitimate.
+            </p>
+        </section>
+
+        <section>
+            <h2>Advantages</h2>
+            <ul>
+                <li>Real-time detection of fraudulent activities</li>
+                <li>Reduces financial losses for businesses and individuals</li>
+                <li>Builds trust in digital payments</li>
+                <li>Improves customer safety and security</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Libraries Used</h2>
+            <ul>
+                <li><strong>Django:</strong> Web framework to build the application</li>
+                <li><strong>NumPy:</strong> Numerical operations and array management</li>
+                <li><strong>Joblib:</strong> For saving and loading ML models</li>
+                <li><strong>Scikit-learn:</strong> Machine learning model training (used outside this Django app)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Importance in Modern Times</h2>
+            <p>
+                With the rise of digital banking and e-commerce, credit card fraud has become more sophisticated and frequent. 
+                Real-time fraud detection systems are crucial for maintaining financial security and protecting both consumers and institutions 
+                from potential threats. Integrating machine learning makes fraud detection faster, smarter, and more efficient.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Card Fraud Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'fraudapp/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <span>Hello {{ user.username|capfirst }}</span>
+                <a href="{% url 'predict' %}">UI Analysis</a>
+                <a href="{% url 'dashboard' %}">DASHBOARD</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'home' %}">HOME</a>
+                <a href="{% url 'about' %}">ABOUT</a>
+                <a href="{% url 'login' %}">LOGIN</a>
+            {% endif %}
+        </div>
+    </nav>
+    
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Secure Your Transactions</h1>
+            <p>Predict fraudulent transactions in real time using our ML-powered tool.</p>
+            <a href="{% url 'predict' %}" class="btn">Try It Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>
+

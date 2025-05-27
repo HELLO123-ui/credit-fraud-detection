@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Credit Card Fraud Detection</title>
+    <link rel="stylesheet" href="{% static 'fraudapp/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT</a>
+            <a href="{% url 'predict' %}">PREDICT</a>
+            <a href="{% url 'dashboard' %}">DASHBOARD</a>
+            <a href="{% url 'data_analysis' %}" class="analysis-button">📊 Analysis</a>
+            <a href="{% url 'logout' %}">LOGOUT</a>
+            <span>Hello {{ username }}</span>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="upload-box">
+            <h2>Batch Prediction - Upload CSV</h2>
+            <form method="POST" enctype="multipart/form-data" class="upload-form">
+                {% csrf_token %}
+                <label for="file_name">Enter File Name:</label>
+                <input type="text" id="file_name" name="file_name" placeholder="E.g. Credit App Batch" required>
+
+                <label for="file">Choose CSV File:</label>
+                <input type="file" id="file" name="file" accept=".csv" required>
+
+                <button type="submit">Run Prediction</button>
+
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+            </form>
+        </div>
+
+        {% if result_table %}
+            <section class="results">
+                <h3>Prediction Results</h3>
+                <div class="table-scroll">
+                    {{ result_table|safe }}
+                </div>
+            </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>

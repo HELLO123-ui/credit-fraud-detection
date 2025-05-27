@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'fraudapp/style.css' %}">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .result-container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .result-container h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .result-badge {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .safe {
+            color: #0a944b;
+            background-color: #e8f8f0;
+            border: 2px solid #0a944b;
+        }
+
+        .fraud {
+            color: #d8000c;
+            background-color: #ffe6e6;
+            border: 2px solid #d8000c;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-weight: bold;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #005fa3;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT</a>
+            <a href="{% url 'predict' %}">PREDICT</a>
+            <a href="{% url 'dashboard' %}">DASHBOARD</a>
+            <a href="{% url 'logout' %}">LOGOUT</a>
+            <span>Hello {{ username }}</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="result-container">
+            <h2>Prediction Result</h2>
+            {% if result %}
+                {% if "Fraud" in result %}
+                    <div class="result-badge fraud"> {{ result }}</div>
+                {% else %}
+                    <div class="result-badge safe"> {{ result }}</div>
+                {% endif %}
+            {% else %}
+                <p>No result to display.</p>
+            {% endif %}
+            <a href="{% url 'predict' %}"><button class="back-btn">Try Another</button></a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>
+

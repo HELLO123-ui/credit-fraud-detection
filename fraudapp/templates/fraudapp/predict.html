@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Transaction Details</title>
+    <link rel="stylesheet" href="{% static 'fraudapp/style.css' %}">
+    <style>
+        .predict-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        .predict-wrapper h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #222;
+        }
+
+        .predict-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+
+        .predict-form label {
+            font-weight: bold;
+        }
+
+        .predict-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .predict-btn {
+            grid-column: span 2;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #0077cc;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .predict-btn:hover {
+            background-color: #005fa3;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">Credit Card Fraud Detection</div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT</a>
+            <a href="{% url 'predict' %}">PREDICT</a>
+            <a href="{% url 'dashboard' %}">DASHBOARD</a>
+            <a href="{% url 'logout' %}">LOGOUT</a>
+            <span>Hello {{ username }}</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="predict-wrapper">
+            <h2>🧠 Enter Transaction Details for Prediction</h2>
+            <form method="POST" class="predict-form">
+                {% csrf_token %}
+                {% for i in range %}
+                    <div>
+                        <label for="a{{ i }}">A{{ i }}:</label>
+                        <input type="number" step="any" name="a{{ i }}" id="a{{ i }}" placeholder="Enter A{{ i }}" required>
+                    </div>
+                {% endfor %}
+                <button type="submit" class="predict-btn">Predict</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Credit Card Fraud Detection System | Built with Django</p>
+    </footer>
+</body>
+</html>
+
+
