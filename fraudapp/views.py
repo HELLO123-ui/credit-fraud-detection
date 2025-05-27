@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
-# ✅ Use a non-GUI backend for macOS to avoid thread crash
+
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
