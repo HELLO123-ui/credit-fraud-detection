@@ -15,16 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
-from django.conf import settings                   # ✅ NEW
-from django.conf.urls.static import static         # ✅ NEW
+from django.contrib.auth import views as auth_views  # ✅ NEW
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fraudapp.urls')),
+
+    # ✅ OVERRIDE default login view with your custom template
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='fraudapp/login.html'), name='login'),
+
+    # Optional: include password reset/logout/etc.
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
-if settings.DEBUG:                                 # ✅ NEW
+if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
