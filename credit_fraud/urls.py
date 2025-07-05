@@ -17,20 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
-from django.contrib.auth import views as auth_views  # ✅ NEW
+from django.contrib.auth import views as auth_views  # ✅ Login view import
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('fraudapp.urls')),
 
-    # ✅ OVERRIDE default login view with your custom template
+    # ✅ Use custom login template
     path('accounts/login/', auth_views.LoginView.as_view(template_name='fraudapp/login.html'), name='login'),
 
-    # Optional: include password reset/logout/etc.
+    # ✅ Include default auth URLs (logout, password reset, etc.)
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
